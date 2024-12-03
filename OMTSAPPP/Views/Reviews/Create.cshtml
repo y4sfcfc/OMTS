@@ -1,0 +1,66 @@
+﻿@model ReviewVM
+@* <form asp-action="Create">
+
+	<div class="form-group">
+		@Html.HiddenFor(x => x.CustomerId)
+		@Html.HiddenFor(x => x.MovieId)
+		<label asp-for="Rating" class="control-label"></label>
+		<select asp-for="Rating">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
+		<span asp-validation-for="Rating" class="text-danger"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="Comment" class="control-label"></label>
+		<input asp-for="Comment" class="form-control" />
+		<span asp-validation-for="Comment" class="text-danger"></span>
+	</div>
+	
+</form> *@
+<div class="container justify-content-center mt-5 border-left border-right">
+	<div class="d-flex justify-content-center pt-3 pb-2 flex-column">
+
+		<form asp-action="Create">
+			<div class="form-group">
+				@Html.HiddenFor(x => x.CustomerId)
+				@Html.HiddenFor(x => x.MovieId)
+				<select asp-for="Rating">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+				</select>
+		
+			</div>
+			<div class="form-group">
+				<label asp-for="Comment" class="control-label"></label>
+				<input type="text"  placeholder="+ Add a note" asp-for="Comment" class="form-control addtxt">
+				<span asp-validation-for="Comment" class="text-danger"></span>
+			</div>
+			<input type="submit" value="Create" class="btn btn-primary my-2 " />
+		</form>
+	</div>
+	<div class="d-flex justify-content-center py-2 flex-column">
+		@foreach (var item in @Model.Reviews)
+		{
+			<div class="second py-2 px-2 m-1">
+				<span class="text1">@item.Comment</span>
+				<div class="d-flex justify-content-between py-1 pt-1">
+					<div><img src="https://admin.ctctaxi.com/assets/images/default-profile-picture.png" width="18"><span class="text2">@item.Customer.UserName</span></div>
+					<div>
+						@for (int i = 0; i < item.Rating; i++)
+						{
+							<i class="fa-solid fa-star text-warning"></i>
+						}	
+					</div>
+				</div>
+			</div>
+
+		}
+	</div>
+</div>

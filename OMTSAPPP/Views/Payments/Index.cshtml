@@ -1,0 +1,36 @@
+﻿@model List<PaymentVM>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th scope="col">Movie</th>
+			<th scope="col">Payment Date</th>
+			<th scope="col">Payment Method</th>
+			<th scope="col">Price</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<th scope="row">@item.MovieName</th>
+				<td>@item.PaymentDate</td>
+				<td>@item.PaymentMethod</td>
+				<th scope="row">@item.Amount<i class="fa-solid fa-dollar-sign"></i></th>
+			</tr>
+
+		}
+
+	</tbody>
+</table>
+@{
+	decimal total = 0;
+}
+<div>
+	@foreach (var item in Model)
+	{
+		total += item.Amount;
+	}
+	<bold>Total</bold>:@total <i class="fa-solid fa-dollar-sign"></i>
+
+</div>

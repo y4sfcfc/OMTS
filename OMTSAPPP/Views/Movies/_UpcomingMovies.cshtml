@@ -1,0 +1,17 @@
+﻿@model List<MovieVM>
+<div class="row upcoming-movies" style="background-color:#fff7ed;">
+<h1>Upcoming Movies</h1>
+	@{ 
+		int count = 0;
+	}
+	@foreach (var item in Model.Take(10))
+	{
+		count++;
+		<div class="row-3">
+			<h4>@count. @item.Title</h4>
+			<p>
+				@DateOnly.FromDateTime(@item.ReleaseDate)
+			</p>
+		</div>
+	}
+</div>

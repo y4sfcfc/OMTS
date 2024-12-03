@@ -1,0 +1,39 @@
+﻿<header>
+	<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 w-100 position-fixed"
+		 style="z-index:100;">
+		<div class="container-fluid">
+			<a class="navbar-brand ms-4" style="width:80px; height:60px;" asp-area="" asp-controller="Movies" asp-action="Index">
+				<img class="w-100 h-100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK1jNY_P3tzcmsLawEuip7OnPpNr0LSTyrFA&s" />
+			</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+					aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+				<ul class="navbar-nav flex-grow-1">
+					<li class="nav-item">
+						<a class="nav-link text-dark" asp-area="" asp-controller="Movies" asp-action="Index">Movies</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-dark" asp-area="" asp-controller="Payments" asp-action="Index">Payments</a>
+					</li>
+				</ul>
+			</div>
+			<div>
+				<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+					<ul class="navbar-nav flex-grow-1 align-items-center">
+						<li class="nav-item">
+							<a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="LogIn">Log In</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-dark" asp-area="" asp-controller="Customers" asp-action="Details"><img src="https://admin.ctctaxi.com/assets/images/default-profile-picture.png" width="50px"></a>
+						</li>
+						<li class="nav-item">@await Component.InvokeAsync("Basket")</li>
+					</ul>
+					<div />
+
+
+				</div>
+			</div>
+	</nav>
+</header>

@@ -1,0 +1,32 @@
+﻿@model List<ShowtimeVM>
+
+
+<form asp-action="Create">
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">Movie</th>
+				<th scope="col">Movie</th>
+				<th scope="col">Start Time</th>
+				<th scope="col">End Time</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<th scope="row">@item.CinemaHallName</th>
+					<td>@item.MovieTitle</td>
+					<td>@item.StartTime</td>
+					<td>@item.EndTime</td>
+					<td>
+					<a asp-controller="Seat" asp-action="Index" asp-route-customerId="@item.CustomerId" asp-route-showtimeId="@item.Id" asp-route-movieId="@item.MovieId" class="btn btn-warning">Book</a>
+					</td>
+
+				</tr>
+
+			}
+		</tbody>
+	</table>
+
+</form>

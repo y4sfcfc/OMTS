@@ -1,0 +1,43 @@
+﻿@model List<TicketVM>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th scope="col">Movie</th>
+			<th scope="col">Seat Number</th>
+			<th scope="col">Start Time</th>
+			<th scope="col">End Time</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<th scope="row">@item.MovieName</th>
+				<td>@item.SeatNumber</td>
+				<td>@item.StartTime</td>
+				<td>@item.EndTime</td>
+				<td>
+					<li class="list-group-item"><a asp-controller="Tickets" asp-action="Create" asp-route-customerId="@item.CustomerId" asp-route-showtimeId="@item.ShowtimeId" asp-route-movieId="@item.MovieId" asp-route-ticketId="@item.Id" class="btn-primary">Add To Basket</a></li>
+				</td>
+		
+			</tr>
+
+		}
+	</tbody>
+</table>
+@* @if (item.CustomerId == 0)
+	{
+
+		<div class="card" style="width: 18rem;">
+			<ul class="list-group list-group-flush">
+				<li class="list-group-item">@item.MovieName</li>
+				<li class="list-group-item">@item.StartTime</li>
+				<li class="list-group-item">@item.EndTime</li>
+				<li class="list-group-item">@item.SeatNumber</li>
+				<li class="list-group-item">@item.Price</li>
+				<li class="list-group-item"><a asp-controller="Tickets" asp-action="Create" asp-route-customerId="@item.CustomerId" asp-route-showtimeId="@item.ShowtimeId" asp-route-movieId="@item.MovieId" class="btn-primary">Add To Basket</a></li>
+				@* <div class="d-flex justify-content-end mb-3">  @Html.ActionLink("Add", "Create", "Reviews", null, new { @class = "btn btn-primary" })</div>
+			</ul>
+		</div>
+	} *@

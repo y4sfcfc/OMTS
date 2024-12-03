@@ -1,0 +1,45 @@
+﻿@model List<MovieVM>
+
+<div class="container-fluid">
+	<div class="container">
+		<div id="partialzone"></div>
+		@await Component.InvokeAsync("TopRated")
+
+		<div class="row gap-2">
+			@foreach (var item in Model)
+			{
+				<div class="main-container col-3">
+					<div class="poster-container">
+						<img src="@Url.Content($"~/Images/{item.Thumbnail}")" class="poster" />
+					</div>
+					<div class="ticket-container" style="background-image:url(@Url.Content($"~/Images/{item.Thumbnail}"));
+					background-repeat:no-repeat;
+                    background-size:cover;">
+						<div class="ticket__content">
+							<h4 class="ticket__movie-title">@item.Title</h4>
+							<p class="ticket__movie-slogan">
+								@item.Genre
+							</p>
+							<p>@item.Duration min</p>
+							<div class="card-body pt-0" style="z-index:99;">
+								<a asp-controller="Reviews" asp-action="Create" asp-route-customerId="@item.CustomerId" asp-route-movieId="@item.Id"
+								   class="btn btn-info me-2 text-light">Review</a>
+								<a asp-action="Details" asp-route-customerId="@item.CustomerId" asp-route-movieId="@item.Id"
+								   class="btn btn-warning  text-light"
+								   style=" font-size: 15px; font-weight: bold;">Details</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+			}
+		</div>
+	</div>
+</div>
+@section Scripts{
+	<script>
+		$('#partialzone').load('/Movies/UpcomingMovies')
+
+	</script>
+}

@@ -1,0 +1,38 @@
+﻿@{
+    Layout = null;
+}
+@model AccountVM
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<div class="container">
+    <div class="row align-items-center h-100 ">
+        <div class="col-4 offset-4">
+            <form asp-controller="Account" asp-action="LogIn" method="post">
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <a class="btn btn-secondary"  asp-controller="Account" asp-action="SignUp">
+
+                        Registration
+                    </a>
+                </div>
+
+            </form>
+        </div>
+
+
+    </div>
+
+</div>

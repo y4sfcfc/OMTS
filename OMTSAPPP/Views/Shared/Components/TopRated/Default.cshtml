@@ -1,0 +1,16 @@
+﻿@model List<MovieVM>
+<div class="row top-rated" style="background-color:#fff7ed;">
+<h1>Top rated movies</h1>
+	@{
+		int count = 0;
+	}
+	@foreach (var item in Model.Take(2))
+	{
+		count++;
+		<div class="row-3">
+		
+			<h4>@count. @item.Title</h4>
+			<span>@Math.Round(item.Average,1)/5 <i class="fa-solid fa-star text-warning"></i></span>
+		</div>
+	}
+</div>

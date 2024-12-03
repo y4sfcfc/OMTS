@@ -1,0 +1,30 @@
+﻿@model List<TicketVM>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th scope="col">Movie</th>
+			<th scope="col">Seat Number</th>
+			<th scope="col">Start Time</th>
+			<th scope="col">End Time</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				@if (!item.IsPaid)
+				{
+					<td>@item.MovieName</td>
+					<td>@item.SeatNumber</td>
+					<td>@item.StartTime</td>
+					<td>@item.EndTime</td>
+					<td>@item.Price<i class="fa-solid fa-dollar-sign"></i></td>
+					<td><a class="btn btn-warning text-white" asp-controller="Payments" asp-action="Create" asp-route-ticketId="@item.Id">Buy</a></td>
+				}
+			</tr>
+
+		}
+
+	</tbody>
+</table>

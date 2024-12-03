@@ -1,0 +1,14 @@
+﻿@model List<TicketVM>
+<a class="basket-part nav-link align-items-center" asp-controller="Tickets" asp-action="BasketIndex">
+	<i class="fa-solid fa-cart-shopping mt-2"></i>
+	@{
+		int count = 0;
+	}
+	@foreach (var item in Model)
+	{
+		if (!item.IsPaid)
+		{
+			count++;
+		}
+	}
+	<span class="basket-count">@count</span></a>
